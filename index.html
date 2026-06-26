@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Save Our Wildlife</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <main class="card" role="main">
+
+        <!-- HEADING (2 marks) -->
+        <h1>🌿 Save Our Wildlife</h1>
+
+        <!-- VIDEO with playback controls (4 marks) -->
+        <div class="video-wrapper" id="videoWrapper">
+            <video
+                id="wildlifeVideo"
+                src="wildlife.mp4"
+                controls
+                aria-label="Promotional video about saving wildlife"
+                preload="metadata"
+            >
+                <!-- fallback message if video cannot be loaded -->
+                <p>Your browser does not support the video tag. Please download the video: <a href="wildlife.mp4">wildlife.mp4</a></p>
+            </video>
+        </div>
+
+        <!-- SHORT DESCRIPTION below the video (2 marks) -->
+        <div class="description" aria-live="polite">
+            <strong>🐾 Every species matters.</strong> This short film shows how our conservation efforts protect endangered animals and their habitats. Join us in making a difference.
+        </div>
+
+        <!-- BUTTON: hides the video OR plays/pauses it (3 marks) -->
+        <div class="btn-wrap">
+            <button
+                id="toggleBtn"
+                class="toggle-btn"
+                type="button"
+                aria-controls="videoWrapper wildlifeVideo"
+                aria-expanded="true"
+            >
+                <span id="btnIcon">⏸️</span>
+                <span id="btnLabel">Hide &amp; Pause</span>
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Link to external JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
