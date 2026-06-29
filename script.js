@@ -12,7 +12,6 @@
     // Helper to update button text/icon based on state
     function updateButton() {
         if (isVideoVisible) {
-            // video is visible: show "Hide & Pause" (or play/pause depending on playback)
             if (video.paused) {
                 btnIcon.textContent = '▶️';
                 btnLabel.textContent = 'Hide & Play';
@@ -22,7 +21,6 @@
             }
             toggleBtn.setAttribute('aria-expanded', 'true');
         } else {
-            // video is hidden: show "Show & Play" (or resume)
             btnIcon.textContent = '▶️';
             btnLabel.textContent = 'Show & Play';
             toggleBtn.setAttribute('aria-expanded', 'false');
@@ -32,7 +30,6 @@
     // Toggle function: hides the video OR plays it if not playing
     function handleToggle() {
         if (isVideoVisible) {
-            // ---- VIDEO IS VISIBLE ----
             // 1. If video is playing, pause it and remember that it was playing
             if (!video.paused) {
                 video.pause();
@@ -49,7 +46,6 @@
             updateButton();
 
         } else {
-            // ---- VIDEO IS HIDDEN ----
             // 1. Show the wrapper
             wrapper.classList.remove('hidden-video');
             isVideoVisible = true;
@@ -65,13 +61,9 @@
                     console.warn('Playback could not start:', err);
                 });
             }
-
-            // 3. Update button
             updateButton();
         }
     }
-
-    // ----- EVENT LISTENERS -----
 
     // Button click
     toggleBtn.addEventListener('click', handleToggle);
@@ -100,17 +92,13 @@
             btnLabel.textContent = 'Hide & Play';
         }
     });
-
-    // If the video fails to load, ensure button still works
     video.addEventListener('error', () => {
         // fallback: keep button functional
         console.warn('Video failed to load. Toggle still works.');
     });
 
-    // Initialize button state on page load
     updateButton();
 
-    // Ensure the video wrapper is visible on load (if hidden by accident)
     wrapper.classList.remove('hidden-video');
     isVideoVisible = true;
     updateButton();
